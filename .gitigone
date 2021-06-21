@@ -1,4 +1,3 @@
-#忽略demo.html文件
-demo.html
+
 #忽略text文件夹下的所有文件
 text/
