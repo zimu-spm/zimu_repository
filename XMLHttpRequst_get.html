@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://www.liulongbin.top:3006/api/getbooks?id=1&author=吴承恩')
+        xhr.send()
+        xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) console.log(xhr.response);
+
+            }
+            //get携带参数的本质
+        $.ajax({
+                method: 'get',
+                url: 'http://www.liulongbin.top:3006/api/getbooks?id=1',
+                success: function(res) {
+                    console.log(res);
+                }
+            })
+            // url编码和解码
+        var str = encodeURI('nihao')
+        console.log(str);
+        str = decodeURI(str)
+        console.log(str);
+        //xhr发起post请求
+        var xhr2 = new XMLHttpRequest();
+        xhr2.open('post', 'http://www.liulongbin.top:3006/api/getbooks')
+        xhr2.setRequestHeader('Content-type', 'appllication/x-www-form-urlencoded');
+        xhr2.send('bookname=水浒传&author=施耐庵&publisher=上海')
+        xhr2.onreadystatechange = function() {
+            console.log(xhr2.readyState);
+            console.log(xhr2.status);
+
+
+        }
+    </script>
+</body>
+
+</html>
